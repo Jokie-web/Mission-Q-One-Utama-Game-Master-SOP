@@ -54,12 +54,11 @@
   <span data-lang-en="Room Reset Guide" data-lang-zh="房间复位指南" data-lang-ms="Panduan Reset Bilik">Reset </span>
 </a>
 
-
-<a href="https://drive.google.com/drive/folders/1ohNAat2W8JlPMUnXHKuqGg-_YLLdYDH2?usp=drive_link" target="_blank" class="flex items-center space-x-4 px-4 py-3 rounded-xl hover:bg-slate-700/60 text-slate-200 hover:text-white transition font-medium text-base">
-      <i class="fa-solid fa-file-arrow-down w-6 text-missionRed text-xl"></i>
-      <span data-lang-en="Document Preview & Download（google drive)" data-lang-zh="文档预览与下载" data-lang-ms="Pratonton & Muat Turun Dokumen">Document Preview & Download</span>
-    </a>
-
+<!-- 带密码保护的 Google Drive 链接按钮 -->
+<a href="javascript:void(0);" onclick="openProtectedDrive('https://drive.google.com/drive/folders/1ohNAat2W8JlPMUnXHKuqGg-_YLLdYDH2?usp=drive_link')" class="flex items-center space-x-4 px-4 py-3 rounded-xl hover:bg-slate-700/60 text-slate-200 hover:text-white transition font-medium text-base">
+  <i class="fa-solid fa-file-arrow-down w-6 text-missionRed text-xl"></i>
+  <span data-lang-en="Document Preview & Download (google drive)" data-lang-zh="文档预览与下载" data-lang-ms="Pratonton & Muat Turun Dokumen">Document Preview & Download</span>
+</a>
             </nav>
 
             <div class="p-4 border-t border-slate-800 text-xs text-slate-400 text-center font-bold">
@@ -1030,6 +1029,25 @@ Aquarium: 6521(draw follow the direction of the arrow, but do not use the color 
                 }
             });
         }
+function openProtectedDrive(driveUrl) {
+  // 设置你的专属密码（你可以把 "1234" 改成你想要的密码）
+  const correctPassword = "1088"; 
+  
+  // 弹窗让用户输入密码
+  let userInput = prompt("Please enter the correct password：");
+  
+  // 如果用户输入了密码并点击了确定
+  if (userInput !== null) {
+    if (userInput === correctPassword) {
+      // 密码正确，在新标签页打开 Google Drive 链接
+      window.open(driveUrl, '_blank');
+    } else {
+      // 密码错误，弹出提示
+      alert("密码错误，无法访问！");
+    }
+  }
+}
+
     </script>
 
 
